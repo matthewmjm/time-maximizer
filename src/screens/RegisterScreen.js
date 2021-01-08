@@ -53,7 +53,6 @@ const RegisterScreen = () => {
             <Screen style={styles.container}>
                 <Form
                     initialValues={{ name: "", email: "", password: "" }}
-                    onSubmit={(values) => console.log(values)}
                     onSubmit={handleSubmit}
                     validationSchema={validationSchema}
                 >
