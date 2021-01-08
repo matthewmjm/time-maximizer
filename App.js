@@ -10,13 +10,15 @@ import ViewImageScreen from './src/screens/ViewImageScreen';
 import AccountScreen from './src/screens/AccountScreen';
 import ListingEditScreen from './src/screens/ListingEditScreen';
 import ListingsScreen from './src/screens/ListingsScreen';
+import ListingDetailsScreen from './src/screens/ListingDetailsScreen';
+import MessagesScreen from './src/screens/MessagesScreen';
 
 const App = () => {
   return (
   //   <NavigationContainer theme={navigationTheme}>
   //   <AppNavigator />
   // </NavigationContainer>
-  <ListingsScreen  />
+  <WelcomeScreen  />
 
   );
 };
