@@ -15,10 +15,10 @@ import MessagesScreen from './src/screens/MessagesScreen';
 
 const App = () => {
   return (
-  //   <NavigationContainer theme={navigationTheme}>
-  //   <AppNavigator />
-  // </NavigationContainer>
-  <WelcomeScreen  />
+    <NavigationContainer theme={navigationTheme}>
+    <AppNavigator />
+  </NavigationContainer>
+  // <WelcomeScreen  />
 
   );
 };
