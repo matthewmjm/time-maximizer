@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavigationContainer } from "@react-navigation/native";
+import jwtDecode from 'jwt-decode';
 
 import navigationTheme from "./src/navigation/navigationTheme";
 import AppNavigator from "./src/navigation/AppNavigator";
@@ -18,9 +19,20 @@ import ListingsScreen from './src/screens/ListingsScreen';
 import ListingDetailsScreen from './src/screens/ListingDetailsScreen';
 import MessagesScreen from './src/screens/MessagesScreen';
 import AuthContext from './src/auth/context';
+import authStorage from './src/auth/storage';
 
 const App = () => {
   const [user, setUser] = useState();
+
+  const restoreToken = async () => {
+    const token = await authStorage.getToken();
+    if (!token) return;
+    setUser(jwtDecode(token));
+  }
+
+  useEffect(() => {
+    restoreToken()
+  }, []);
 
   return (
     <AuthContext.Provider value={{ user, setUser }} >
