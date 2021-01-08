@@ -19,7 +19,7 @@ const menuItems = [
         targetScreen: routes.MESSAGES
     },
     {
-        title: "My Messages",
+        title: "My Reminders",
         icon: {
             name: "email",
             backgroundColor: colors.quaternary

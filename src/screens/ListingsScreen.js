@@ -34,7 +34,7 @@ function ListingsScreen({ navigation }) {
                 renderItem={({ item }) => (
                 <Card
                     title={item.title}
-                    subTitle={"$" + item.minutes}
+                    subTitle={item.minutes + " minutes"}
                     imageUrl={item.images[0].url}
                     onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
                     thumbnailUrl={item.images[0].thumbnailUrl}

@@ -49,7 +49,7 @@ function ListingDetailsScreen({ route }) {
             />
             <View style={styles.detailsContainer}>
                 <AppText style={styles.title}>{listing.title}</AppText>
-                <AppText style={styles.minutes}>${listing.minutes}</AppText>
+                <AppText style={styles.minutes}>{listing.minutes} minutes</AppText>
             <View style={styles.userContainer}>
                     <ListItem
                         image={require("../assets/matthewmjm.jpg")}
