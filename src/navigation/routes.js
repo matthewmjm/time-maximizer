@@ -4,6 +4,6 @@ export default Object.freeze({
     LOGIN: "Login",
     MESSAGES: "Reminders",
     REGISTER: "Register",
-    // LOGOUT: "Logout"
+    SCHEDULE: "Schedule"
 
 })
