@@ -3,8 +3,9 @@ import { Image, ImageBackground, Platform, StyleSheet, View } from 'react-native
 import colors from '../config/colors';
 import AppButton from '../components/AppButton';
 import AppText from '../components/AppText';
+import routes from "../navigation/routes";
 
-const WelcomeScreen = (props) => {
+const WelcomeScreen = ({ navigation }) => {
     return (
         <ImageBackground
             blurRadius={1}
@@ -19,8 +20,15 @@ const WelcomeScreen = (props) => {
                 <AppText style={styles.landingText}>TIME MAXIMIZER</AppText>
             </View>
             <View style={styles.buttonsContainer}>
-                <AppButton title="Login" ></AppButton>
-                <AppButton title="Register" color="quaternary" ></AppButton>
+                <AppButton 
+                    title="Login"
+                    onPress={() => navigation.navigate(routes.LOGIN)} 
+                />
+                <AppButton 
+                    title="Register" 
+                    color="quaternary" 
+                    onPress={() => navigation.navigate(routes.REGISTER)}
+                />
             </View>
         </ImageBackground>
     );
