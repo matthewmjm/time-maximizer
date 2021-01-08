@@ -5,7 +5,7 @@ import ListingDetailsScreen from '../screens/ListingDetailsScreen';
 
 const Stack = createStackNavigator();
 
-const FeedNavigator = () => (
+const TaskNavigator = () => (
     <Stack.Navigator 
         mode="modal"
         screenOptions={{ headerShown: false }}
@@ -18,4 +18,4 @@ const FeedNavigator = () => (
     </Stack.Navigator>
 )
 
-export default FeedNavigator;
+export default TaskNavigator;
