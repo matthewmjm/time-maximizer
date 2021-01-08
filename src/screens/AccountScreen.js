@@ -7,6 +7,7 @@ import routes from "../navigation/routes";
 import Screen from '../components/Screen';
 import AuthContext from '../auth/context';
 import authStorage from '../auth/storage';
+import useAuth from "../auth/useAuth";
 
 const menuItems = [
     {
@@ -27,12 +28,15 @@ const menuItems = [
 ]
 
 const AccountScreen = ({ navigation }) => {
-    const { user, setUser } = useContext(AuthContext);
+    // const { user, setUser } = useContext(AuthContext);
+    // const { user, setUser } = useAuth();
+    const { user, logOut } = useAuth();
 
-    const handleLogout = () => {
-        setUser(null);
-        authStorage.removeToken();
-    }
+    // const handleLogout = () => {
+    //     setUser(null);
+    //     authStorage.removeToken();
+    // }; 
+
     return (
         <Screen style={styles.screen}>
             <View style={styles.container}>
@@ -66,7 +70,7 @@ const AccountScreen = ({ navigation }) => {
                 IconComponent={
                     <Icon name="logout" backgroundColor={colors.quinary} />
                 }
-                onPress={handleLogout}
+                onPress={logOut}
             />
         </Screen>
     );
