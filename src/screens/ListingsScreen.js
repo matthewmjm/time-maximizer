@@ -1,69 +1,56 @@
 import React, { useState, useEffect } from 'react';
 import { FlatList, StyleSheet } from 'react-native';
 
-import AppText from '../components/AppText';
+import AppButton from '../components/AppButton';
 import Card from '../components/Card';
 import colors from '../config/colors';
 import listingsApi from '../api/listings';
 import routes from '../navigation/routes';
-import Screen from '../components/Screen';
-import AppButton from '../components/AppButton';
 import ActivityIndicator from '../components/ActivityIndicator';
+import Screen from '../components/Screen';
+import AppText from '../components/AppText';
 import useApi from '../hooks/useApi';
 
-const ListingsScreen = ({ navigation }) => {
+function ListingsScreen({ navigation }) {
+    const getListingsApi = useApi(listingsApi.getListings);
 
-    const {data: listings, error, loading, request: loadListings} = useApi(listingsApi.getListings);
-
-    // FETCH FOR LISTINGS ON BACKEND SERVER
-    // const [ listings, setListings ] = useState([]);
-    // const [ error, setError ] = useState(false);
-    // const [ loading, setLoading ] = useState(false) 
     useEffect(() => {
-        loadListings();
+        getListingsApi.request();
     }, []);
-    // const loadListings = async () => {
-    //     setLoading(true);
-    //     const response = await listingsApi.getListings();
-    //     setLoading(false)
-
-    //     if (!response.ok) return setError(true);
-
-    //     setError(false);
-    //     setListings(response.data);
-    // };
-
-
 
     return (
-        <Screen style={styles.screen}>
-            {error && <> 
-            <AppText style={{ color: 'red' }}>Couldn't Retrieve the Task List</AppText>
-            <AppButton title="Retry" onPress={loadListings} />
-            </>}
-            <ActivityIndicator visible={loading} />
-            <FlatList 
-                data={listings}
-                keyExtractor={listing => listing.id.toString()}
+        <>
+            <ActivityIndicator visible={getListingsApi.loading} />
+            <Screen style={styles.screen}>
+            {getListingsApi.error && (
+                <>
+                <AppText>Couldn't retrieve the listings.</AppText>
+                <AppButton title="Retry" onPress={getListingsApi.request} />
+                </>
+            )}
+            <FlatList
+                data={getListingsApi.data}
+                keyExtractor={(listing) => listing.id.toString()}
                 renderItem={({ item }) => (
-                    <Card
-                        title={item.title}
-                        subTitle={`$ ${item.price}`}
-                        imageUrl={item.images[0].url}
-                        onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
-                        // thumbnailUrl={item.images[0].thumbnailUrl}
-                    />
+                <Card
+                    title={item.title}
+                    subTitle={"$" + item.price}
+                    imageUrl={item.images[0].url}
+                    onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
+                    thumbnailUrl={item.images[0].thumbnailUrl}
+                />
                 )}
             />
-        </Screen>
-    );
-};
-
-const styles = StyleSheet.create({
-    screen: {
+            </Screen>
+        </>
+        );
+    }
+    
+    const styles = StyleSheet.create({
+        screen: {
         padding: 20,
         backgroundColor: colors.light,
-    }
-})
+        },
+    });
 
 export default ListingsScreen;
