@@ -21,7 +21,7 @@ import listings from "../api/listings";
 //             />
 //             <View style={styles.detailsContainer}>
 //                 <AppText style={styles.title}>{listings.title}</AppText>
-//                 <AppText style={styles.price}>{listings.price}</AppText>
+//                 <AppText style={styles.minutes}>{listings.minutes}</AppText>
 //                 <View style={styles.userContainer}>
 //                 <ListItem
 //                     image={require("../assets/matthewmjm.jpg")}
@@ -49,7 +49,7 @@ function ListingDetailsScreen({ route }) {
             />
             <View style={styles.detailsContainer}>
                 <AppText style={styles.title}>{listing.title}</AppText>
-                <AppText style={styles.price}>${listing.price}</AppText>
+                <AppText style={styles.minutes}>${listing.minutes}</AppText>
             <View style={styles.userContainer}>
                     <ListItem
                         image={require("../assets/matthewmjm.jpg")}
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
         width: "100%",
         height: 300,
     },
-    price: {
+    minutes: {
         color: colors.tertiary,
         fontWeight: "bold",
         fontSize: 20,

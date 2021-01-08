@@ -7,15 +7,28 @@ const initialMessages = [
     {
         id: 1,
         title: 'Matthew Malecki',
-        description: 'Message1',
+        description: 'Reminder to reschedule for Teeth Cleaning',
         image: require('../assets/matthewmjm.jpg')
     },
     {
         id: 2,
         title: 'Matthew Malecki',
-        description: "Message2",
+        description: "Reminder to pick up coffee at the store",
         image: require('../assets/matthewmjm.jpg')
     },
+    // {
+    //     id: 3,
+    //     title: 'Cody Malecki',
+    //     description: "Don't forget to take me to the park!",
+    //     image: require('../assets/cody.jpg')
+    // },
+    // {
+    //     id: 4,
+    //     title: 'Rio Malecki',
+    //     description: "We need more treats!!!",
+    //     image: require('../assets/rio.jpg')
+    // },
+
 ]
 
 const MessagesScreen = (props) => {
@@ -51,10 +64,28 @@ const MessagesScreen = (props) => {
                 onRefresh={() => {
                     setMessages([
                         {
+                            id: 1,
+                            title: 'Matthew Malecki',
+                            description: 'Reminder to reschedule for Teeth Cleaning',
+                            image: require('../assets/matthewmjm.jpg')
+                        },
+                        {
                             id: 2,
                             title: 'Matthew Malecki',
-                            description: "I'm interested in this item. When will you be able to post it?",
+                            description: "Reminder to pick up coffee at the store",
                             image: require('../assets/matthewmjm.jpg')
+                        },
+                        {
+                            id: 3,
+                            title: 'Cody Malecki',
+                            description: "Don't forget to take me to the park!",
+                            image: require('../assets/cody.jpg')
+                        },
+                        {
+                            id: 4,
+                            title: 'Rio Malecki',
+                            description: "We need more treats!!!",
+                            image: require('../assets/rio.jpg')
                         },
                     ])
                 }}

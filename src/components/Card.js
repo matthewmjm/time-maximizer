@@ -8,6 +8,7 @@ const Card = ({ title, subTitle, imageUrl, onPress, thumbnailUrl }) => {
     return(
         <TouchableWithoutFeedback onPress={onPress}>
             <View style={styles.card}>
+                
                 <Image 
                     style={styles.image} 
                     source={{ uri: imageUrl }}

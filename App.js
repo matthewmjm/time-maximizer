@@ -9,7 +9,7 @@ import AppNavigator from "./src/navigation/AppNavigator";
 import AuthNavigator from "./src/navigation/AuthNavigator";
 import OfflineNotice from './src/components/OfflineNotice';
 
-import NetInfo, { useNetInfo } from '@react-native-community/netinfo';
+// import NetInfo, { useNetInfo } from '@react-native-community/netinfo';
 import WelcomeScreen from './src/screens/WelcomeScreen';
 import { Button } from 'react-native'
 import LoginScreen from './src/screens/LoginScreen';
@@ -53,7 +53,7 @@ const App = () => {
 
   return (
     <AuthContext.Provider value={{ user, setUser }} >
-      <OfflineNotice />
+      {/* <OfflineNotice /> */}
         <NavigationContainer theme={navigationTheme}>
           {user ? <AppNavigator /> : <AuthNavigator />}
         </NavigationContainer>

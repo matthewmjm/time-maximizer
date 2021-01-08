@@ -45,6 +45,7 @@ const AccountScreen = ({ navigation }) => {
                     title={user.name}
                     subTitle={user.email}
                     image={require('../assets/matthewmjm.jpg')}
+                    // image={user.image}
                 />
             </View>
             <View style={styles.container}>

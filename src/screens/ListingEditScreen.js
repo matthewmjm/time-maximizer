@@ -17,7 +17,7 @@ import UploadScreen from './UploadScreen';
 
 const validationSchema = Yup.object().shape({
     title: Yup.string().required().min(1).label("Title"),
-    price: Yup.number().required().min(1).max(10000).label("Price"),
+    minutes: Yup.number().required().min(1).max(10000).label("minutes"),
     description: Yup.string().label("Description"),
     category: Yup.object().required().nullable().label("Category"),
     images: Yup.array().min(1, "Please select at least one image."),
@@ -111,7 +111,7 @@ function ListingEditScreen() {
             <Form
                 initialValues={{
                     title: "",
-                    price: "",
+                    minutes: "",
                     description: "",
                     category: null,
                     images: [],
@@ -128,8 +128,8 @@ function ListingEditScreen() {
                 <AppFormField
                     keyboardType="phone-pad"
                     maxLength={8}
-                    name="price"
-                    placeholder="Price"
+                    name="minutes"
+                    placeholder="minutes"
                     width={120}
                 />
                 <Picker
